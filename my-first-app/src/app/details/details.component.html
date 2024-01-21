@@ -1,0 +1,8 @@
+<button
+    class="btn btn-primary"
+    (click)="getDisplay()">
+    Display Details    
+</button>
+<p [hidden]="detailsDisplayed"> This is my display information</p>
+<div *ngFor="let logItem of log" [ngStyle]="{'background-color': logItem >= 5 ? 'blue' : 'transparent'}"
+[ngClass]="{logged: logItem >= 5}"> {{logItem}} </div>
