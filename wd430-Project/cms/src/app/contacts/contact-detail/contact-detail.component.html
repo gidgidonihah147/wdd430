@@ -1,20 +1,25 @@
 <div class="row">
-    <div class="col-xs-12 panel panel-info">
-        <div class="panel-heading">
-            <!--Temp info while we wait to learn how to pass data from another component-->
-            Contact Name
-            Image
-            <button class="btn btn-primary pull-right">Edit</button>
-            <button class="btn btn-danger pull-right">Delete</button>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <!--Static empty fields while we wait for future lessons-->
-                    <p>Email: </p>
-                    <p>Phone: </p>
-                </div>
-            </div>
-        </div>
+  <div class="col-xs-12 panel panel-info">
+    <div class="panel-heading">
+      <!--Temp info while we wait to learn how to pass data from another component-->
+      {{ contact.name }}
+      <img
+        src="{{ contact.imageUrl }}"
+        alt="{{ contact.name }} image"
+        class="img-responsive"
+        style="max-height: 50px"
+      />
+      <button class="btn btn-primary pull-right">Edit</button>
+      <button class="btn btn-danger pull-right">Delete</button>
     </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <!--Static empty fields while we wait for future lessons-->
+          <p>Email: {{ contact.email }}</p>
+          <p>Phone: {{ contact.phone }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
