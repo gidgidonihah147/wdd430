@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  loadedFeature: string = 'messages';
+  loadedFeature: string = 'documents';
 
   onNavigate(onSelect: string) {
     this.loadedFeature = onSelect;
