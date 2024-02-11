@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Contact } from '../contact.model';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -7,33 +8,15 @@ import { Contact } from '../contact.model';
   styleUrl: './contact-list.component.css',
 })
 export class ContactListComponent implements OnInit {
-  @Output() contactDetailSelected = new EventEmitter<Contact>();
+  @Output() contactSelected = new EventEmitter<Contact>();
 
-  contacts: Contact[] = [
-    new Contact(
-      1,
-      'R. Kent Jackson',
-      'Jacksonk@byui.edu',
-      '208-496-3771',
-      '../../../assets/images/jacksonk.jpg',
-      null
-    ),
-    new Contact(
-      2,
-      'Rex Barzee',
-      'Barzee@byui.edu',
-      '208-496-3768',
-      '../../../assets/images/barzeer.jpg',
-      null
-    ),
-  ];
+  contacts: Contact[] = [];
 
-  constructor() {}
+  constructor(private ContactService: ContactService) {}
 
-  ngOnInit(): void {}
-
-  onContactSelected(contact: Contact) {
-    this.contactDetailSelected.emit(contact);
-    console.log(contact.id + ': Contact-list');
+  ngOnInit(): void {
+    this.contacts = this.ContactService.getContacts();
   }
+
+
 }

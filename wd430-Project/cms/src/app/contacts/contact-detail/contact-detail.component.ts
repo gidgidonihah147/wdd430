@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Contact } from '../contact.model';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contact-detail',
@@ -8,5 +9,6 @@ import { Contact } from '../contact.model';
 })
 export class ContactDetailComponent {
   @Input() contact: Contact;
+  constructor(private ContactService:ContactService){}
 
 }
